@@ -3,16 +3,17 @@
 ## Introduction
 
 ### What is Docker?
+
 Docker is a way to avoid the problem "it works in my machine" which could be costly.
 The way Docker avoid this problem is to create a "virtual machine" called a container.
-Container is basically a virtual machine that involved less work because it shares kernel 
+Container is basically a virtual machine that involved less work because it shares kernel
 unlike regular virtual machine where it has its own kernel
 This means that Docker is very lightweight and fast to startup which is very useful when doing application development.
 
 Within this demo, we hope this will be useful during your project since Docker is a useful tool for sharing code
 since every container has the same library depending on the installation.
 
-![](./git-images/containers-vs-virtual-machines.jpg "Containers vs VM")
+![](./git-images/containers-vs-virtual-machines.jpg 'Containers vs VM')
 
 Image Source: https://www.weave.works/blog/a-practical-guide-to-choosing-between-docker-containers-and-vms
 
@@ -26,30 +27,33 @@ so we will show how to solely create container.
 In order to create a container:
 
 1. Find a Docker Image on which you would like your container to be based on.
-We can start by using Ubuntu by running this command on your CLI.
+   We can start by using Ubuntu by running this command on your CLI.
 
-~~~ 
-docker pull Ubuntu 
-~~~
+```
+docker pull Ubuntu
+```
 
 2. Name the container on whatever name you like, this way we can create the container
-in which we can use them as a Ubuntu container
-~~~
+   in which we can use them as a Ubuntu container
+
+```
 docker run -d -t —name [name of container] Ubuntu
-~~~
+```
 
 3. In order to show the running processeses of list of containers you can run this on your CLI
-~~~
+
+```
 docker ps
-~~~
+```
 
 4. To execute or run the Docker container we can use the command
-~~~
+
+```
 docker exec -it [name of container] bash
-~~~
+```
 
 As we can see, we will have a running container in which it has everything installed including
-Ubuntu as our base. We can use bash like any Ubuntu machine. However, take note that we cannot really 
+Ubuntu as our base. We can use bash like any Ubuntu machine. However, take note that we cannot really
 change files because containers alone does not support persistent data storage in which we will talk about
 briefly in Volumes.
 
@@ -60,7 +64,7 @@ https://hub.docker.com
 
 Creating Docker images is usually what people would use since this is usually what people share their code with.
 Docker images is very important especially during deploying to a server as well since it gives instructions on how the Docker
-Container is going to be setup. 
+Container is going to be setup.
 
 In order to create a Docker Container, just follow these steps:
 
@@ -68,39 +72,58 @@ In order to create a Docker Container, just follow these steps:
 
 1. Create a Dockerfile to the directory
 
-2. Dockerfile consists of a list of commands to make a docker image. 
+2. Dockerfile consists of a list of commands to make a docker image.
 
 3. Create .dockerignore in order to exclude unwanted files (similar to .gitignore)
 
 4. Docker is a bit weird it runs on 0.0.0.0, so whenever there is a local server involved, it should be binded to 0.0.0.0
 
 5. After the Dockerfile has been fully setup, we can build them by typing this in our CLI
-~~~
+
+```
 docker build . -t [image name]
-~~~
+```
 
 6. Then, we can just run them by typing this within our CLI
-~~~ 
+
+```
 docker run -p [host port]:[docker port] [docker image id]
-~~~
+```
 
 By following these steps we have ourselves a Docker image ready to deploy and shared.
 
 If you are someone who is using a shared Docker that has already been setup via a Dockerfile, feel free to just run this on your CLI
 
-~~~
+```
 docker build . -t [image name]
 docker run -p 8000:8000 [docker image id]
-~~~
+```
 
 ## Volumes
 
-Since Docker Container does not save the changes that are made, Docker has a way to do save them which is called **Volumes**. 
+Since Docker Container does not save the changes that are made, Docker has a way to do save them which is called **Volumes**.
 Volumes are a way for Docker to share the host's file with the Docker container in order to save them in a persistent way.
 This way, Docker can keep track the changes being made in the host's file and send them to a container making them persistent.
+Volumes allow you to share data between your host machine and your Docker container. This can be useful when you need to persist data across container restarts or when you want to share data between multiple containers.
+
+To create a volume, you can use the `docker volume create` command:
+
+```
+docker volume create my-volume
+```
+
+This will create a new volume named `my-volume`. You can list all the volumes on your system with the `docker volume ls command`.
+
+To use a volume in a container, you need to mount it to a directory in the container. You can do this by adding the `-v` or `--mount` flag to the `docker run` command:
+
+```
+docker run -v my-volume:/app/data my-image
+```
+
+This command will start a new container from the `my-image` image and mount the `my-volume` volume to the `/app/data` directory inside the container. Any data saved to the `/app/data` directory will be stored in the volume and will be accessible even after the container is stopped or removed.
+
+Volumes are a powerful feature in Docker that can help you manage and share data between containers. Use them wisely to simplify your workflow and improve your development process.
 
 ## Docker in render
 
 Check this: https://render.com/docs/docker
-
-
