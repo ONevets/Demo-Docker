@@ -1,0 +1,28 @@
+body{
+    background-color: lightblue;
+    margin: 1%;
+}
+
+.center{
+    text-align: center;
+}
+
+.custom-css-hidden{
+    display: none !important;
+}
+
+#survey-cat-img{
+    width: 15%;
+    height: 5%;
+}
+
+#survey-form{
+    margin-left: 5em;
+    margin-right: 5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    background-color: white;
+}
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block chart_script %} 
+    <script src="/static/scripts/mychart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        <canvas id="survey-prefer-pic"></canvas>
+    </div>
+
+    <div>
+        <canvas id="survey-question"></canvas>
+    </div>
+
+    <div>
+        <canvas id="survey-features"></canvas>
+    </div>
+
+    <div>
+        <canvas id="survey-dates"></canvas>
+    </div>
+{% endblock %}

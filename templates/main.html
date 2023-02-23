@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="pure-g"></div>
+    <div class="center pure-u-1-1">
+      <h1>Welcome to the cat club</h1>
+    </div>
+    <div class="center pure-u-1-1">
+      <h2>Do you consent in doing this survey?</h2>
+    </div>
+    
+  <form class="center pure-form pure-g" action="/" method="POST">
+    <div class="pure-u-1-2">
+      <input type="submit" id="consent-yes" name="consent" value="Consent">
+    </div>
+    <div class="pure-u-1-2">
+      <input type="submit" id="consent-no" name="consent" value="Reject">
+    </div>
+    
+  </form>
+{% endblock %}

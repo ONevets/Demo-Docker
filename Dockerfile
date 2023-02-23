@@ -2,7 +2,6 @@
 FROM python:3.9.6
 
 # List of environments 
-ENV DATABASE_URL=[Change database url here]
 ENV FLASK_ENV=development
 ENV FLASK_APP=server.py
 

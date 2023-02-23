@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="survey-form">
+    <form class="pure-form pure-form-stacked" action="/thanks" method="post">
+      <legend>
+        <h1>Welcome to the survey</h1>
+        <p>By submitting the survey, you have consented that we will collect your data</p>
+      </legend>
+      <fieldset>
+        <label for="age">How old are you?</label>
+        <input class="pure-u-1-24" type="text" maxlength="3" name="age" required="">
+        <br>
+        
+        <label for="cats">Which cat looks the best?</label>
+        <input type="radio" name="cats" id="pic-1" value="pic-1" required>
+        <img id="survey-cat-img" src="../static/images/first-cat.jpg" alt=""> <br>
+        <input type="radio" name="cats" id="pic-2" value="pic-2" required>
+        <img id="survey-cat-img" src="../static/images/second-cat.jpg" alt=""> <br>
+        <input type="radio" name="cats" id="pic-3" value="pic-3" required>
+        <img id="survey-cat-img" src="../static/images/third-cat.jpg" alt=""> <br> 
+        <br>
+
+        <label for="features">What kind of features would you like in a cat?</label>
+        <input type="checkbox" name="features" id="feature-1" value="floof"> Floof <br>
+        <input type="checkbox" name="features" id="feature-2" value="chonk"> Chonk <br>
+        <input type="checkbox" name="features" id="feature-3" value="slep"> Slep <br>
+        <p id="survey-checkbox-warning">At least one must be selected</p>
+        <br>
+
+        <label for="conditional-question">Would you like to have a cat?</label>
+        <input type="radio" name="conditional-question" id="question-1" value="Yes" required> Yes <br>
+        <input type="radio" name="conditional-question" id="question-2" value="No" required> No <br>
+        <input type="text" class="custom-css-hidden" name="conditional-question-details" id="question-2-details" placeholder="Tell us why"> <br>
+        <br>
+
+        <button id="survey-submit" type="submit">Submit</button>
+      </fieldset>
+      
+    </form>
+  </div>
+{% endblock %}
