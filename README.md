@@ -36,7 +36,7 @@ docker pull ubuntu
 2. Name the container on whatever name you like, this way we can create the container
 in which we can use them as a Ubuntu container
 ~~~
-docker run -d -t —name [name of container] ubuntu
+docker run -d -t -—name [name of container] ubuntu
 ~~~
 
 3. In order to show the running processeses of list of containers you can run this on your CLI
