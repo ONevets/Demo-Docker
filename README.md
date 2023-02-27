@@ -35,7 +35,7 @@ docker pull Ubuntu
 2. Name the container on whatever name you like, this way we can create the container
 in which we can use them as a Ubuntu container
 ~~~
-docker run -d -t —name [name of container] Ubuntu
+docker run -d -t —name [name of container] ubuntu
 ~~~
 
 3. In order to show the running processeses of list of containers you can run this on your CLI
@@ -91,6 +91,13 @@ If you are someone who is using a shared Docker that has already been setup via 
 ~~~
 docker build . -t [image name]
 docker run -p 8000:8000 [docker image id]
+docker exec -it [name of container] bash
+~~~
+
+After all that, you can just keep running the container by using
+
+~~~
+docker exec [docker container id]
 ~~~
 
 ## Volumes
@@ -99,8 +106,7 @@ Since Docker Container does not save the changes that are made, Docker has a way
 Volumes are a way for Docker to share the host's file with the Docker container in order to save them in a persistent way.
 This way, Docker can keep track the changes being made in the host's file and send them to a container making them persistent.
 
-## Docker in render
+docker run -p 8000:8000 -v $(pwd):/app [docker image id]
 
-Check this: https://render.com/docs/docker
 
 

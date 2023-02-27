@@ -50,6 +50,13 @@ def thanks():
     db.add_survey(age, cats, features, conditionalQuestion, conditionalDetails)
     return render_template('thanks.html')
 
+@app.route('/write_data', methods=['POST'])
+def write_data():
+    data = request.get_data()
+    with open('/data/myfile.txt', 'w') as f:
+        f.write(data)
+    return 'Docker Volume is Awsome! Data written to file!'
+
 @app.route("/decline")
 def decline():
     return render_template('decline.html') 
