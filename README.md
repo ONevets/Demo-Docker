@@ -30,7 +30,7 @@ In order to create a container:
    We can start by using Ubuntu by running this command on your CLI.
 
 ```
-docker pull Ubuntu
+docker pull ubuntu
 ```
 
 2. Name the container on whatever name you like, this way we can create the container
